@@ -1,0 +1,206 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Remove link defaults
+*/
+a:is(:link, :visited) {
+  display: inline-block;
+  text-decoration: none;
+  color: currentColor;
+}
+
+:root {
+  /* Colors */
+
+  --Soft-blue: #8bacda;
+  --Cyan: #00fff7;
+  --Cyan-hover: #00fff780;
+
+  --Very-dark-blue-main-BG: #0d192b;
+  --Very-dark-blue-card-BG: #14253d;
+  --Very-dark-blue-line: #2f415b;
+  --White: #ffffff;
+}
+
+/* ***************************************** */
+/* ************ General Settings *********** */
+/* ***************************************** */
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  background-color: var(--Very-dark-blue-main-BG);
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link:is(:link, :visited) {
+  color: var(--White);
+  transition: all 0.3s;
+}
+.link:is(:hover, :active) {
+  color: var(--Cyan);
+}
+/* *************************************************** */
+
+.card-component {
+  width: calc((327 / 16) * 1rem);
+  background-color: var(--Very-dark-blue-card-BG);
+  color: var(--Soft-blue);
+
+  padding: calc((20 / 16) * 1rem);
+  margin: calc((20 / 16) * 1rem);
+  border-radius: 1rem;
+}
+.card-picture {
+  width: calc((278 / 16) * 1rem);
+  height: calc((278 / 16) * 1rem);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+
+  position: relative;
+}
+.card-picture::before {
+  content: "";
+  background-image: linear-gradient(var(--Cyan-hover), var(--Cyan-hover)),
+    url("./images/icon-view.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: calc((278 / 16) * 1rem);
+  height: calc((278 / 16) * 1rem);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.card-picture:hover::before {
+  opacity: 1;
+}
+
+.card-link:is(:link, :visited) {
+  font-size: calc((22 / 16) * 1rem);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* ************** Details *************** */
+.card-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-block: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--Very-dark-blue-line);
+}
+span {
+  display: inline-block;
+}
+.detail {
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.eth {
+  color: var(--Cyan);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ************** Profile *************** */
+.profile {
+  font-size: calc((15 / 16) * 1rem);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+.profile img {
+  width: calc((33 / 16) * 1rem);
+  height: calc((33 / 16) * 1rem);
+  border: 1px solid var(--White);
+  border-radius: 50%;
+}
+
+/* QUERIES */
+@media (min-width: 48rem) {
+  .card-component {
+    width: calc((350 / 16) * 1rem);
+  }
+
+  .card-picture,
+  .card-picture:hover.card-picture::before {
+    width: calc((302 / 16) * 1rem);
+    height: calc((302 / 16) * 1rem);
+  }
+
+  .profile {
+    font-size: 1rem;
+  }
+}
