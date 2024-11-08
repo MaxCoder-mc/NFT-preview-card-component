@@ -116,6 +116,7 @@ body {
   margin-bottom: 1rem;
 
   position: relative;
+  cursor: pointer;
 }
 .card-picture::before {
   content: "";
