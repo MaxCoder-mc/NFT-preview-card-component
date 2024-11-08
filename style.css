@@ -83,7 +83,6 @@ body {
   font-size: 1.125rem;
   font-weight: 300;
   background-color: var(--Very-dark-blue-main-BG);
-  min-height: 100vh;
 
   display: flex;
   align-items: center;
@@ -104,7 +103,7 @@ body {
   color: var(--Soft-blue);
 
   padding: calc((20 / 16) * 1rem);
-  margin: calc((20 / 16) * 1rem);
+  margin: 3.5rem calc((20 / 16) * 1rem);
   border-radius: 1rem;
 }
 .card-picture {
@@ -122,6 +121,7 @@ body {
   content: "";
   background-image: linear-gradient(var(--Cyan-hover), var(--Cyan-hover)),
     url("./images/icon-view.svg");
+
   background-repeat: no-repeat;
   background-position: center;
 
@@ -191,6 +191,9 @@ span {
 
 /* QUERIES */
 @media (min-width: 48rem) {
+  body {
+    min-height: 100vh;
+  }
   .card-component {
     width: calc((350 / 16) * 1rem);
   }
